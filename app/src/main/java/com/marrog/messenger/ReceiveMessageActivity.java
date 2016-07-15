@@ -1,10 +1,13 @@
 package com.marrog.messenger;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class ReceiveMessageActivity extends AppCompatActivity {
+
+    public static final String EXTRA_MESSAGE = "message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,7 +15,10 @@ public class ReceiveMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_receive_message);
 
         TextView message = (TextView)findViewById(R.id.message);
-        message.setText("Hello!");
+
+        Intent intent = getIntent();
+
+        message.setText(intent.getStringExtra(EXTRA_MESSAGE));
 
     }
 }
