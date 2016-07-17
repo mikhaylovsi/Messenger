@@ -24,8 +24,14 @@ public class CreateMessageActivity extends AppCompatActivity {
 
     public void onSendMessage(View view) {
 
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
-        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, String.valueOf(send.getText()));
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "Текст сообщения");
+
+
+
+//        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+//        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, String.valueOf(send.getText()));
 
 //        //send via telegramm
 //        final String appName = "org.telegram.messenger";
