@@ -26,7 +26,9 @@ public class CreateMessageActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "Текст сообщения");
+        intent.putExtra(Intent.EXTRA_TEXT, send.getText().toString());
+        Intent chooserIntent = Intent.createChooser(intent, getString(R.string.send));
+
 
 
 
@@ -41,7 +43,7 @@ public class CreateMessageActivity extends AppCompatActivity {
 //            myIntent.putExtra(Intent.EXTRA_TEXT, String.valueOf(send.getText()));//
 //           startActivity(Intent.createChooser(myIntent, "Share with"));
 
-        startActivity(intent);
+        startActivity(chooserIntent);
 
     }
 }
